@@ -20,6 +20,7 @@ This module is meant as a wrapper to the timer peripherals in microcontrollers. 
 - `void timerOverflowInterrupt (void)`: This function should be registered as the callback function to the overflow interrupt of the timer peripheral. <br>
 - `void defaultTimerCallback (void)`: This the default callback function to the user defined timers. This function will be called if there is no other callback function provided during initial registration. Empty function by default. <br>
 - `uint8_t registerTimer(timer_t* timerHandle, uint32_t period_ms, timerCallback_t timerCallback)`: This function is used to add timers of different periods to the timer peripheral. To use this function, a timer should be created using `timer_t timerName` and its address should be passed to the `timerHandle` argument, along with the period in ms, and a pointer to the callback function. NULL or 0 can be passed in lieu of a callback function to make the timer call back to `defaultTimerCallback`. This function returns the total number of timers created. <br>
+- `uint8_t getTimerCount (void)`: Returns the number of timers registered
 - `void enableTimer (timer_t* timerHandle)`: Enables specified timer.
 - `void disableTimer (timer_t* timerHandle)`: Disables specified timer.
 

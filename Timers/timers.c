@@ -1,6 +1,7 @@
 #include "timers.h"
 
 static timer_t* lastTimerHandle = NULL;
+static uint8_t numTimers = 0;
 
 
 void timerOverflowInterrupt () {
@@ -19,8 +20,7 @@ void defaultTimerCallback () {
     // Put Default Timer Callback code here
 }
 
-uint8_t registerTimer(timer_t* timerHandle, uint32_t period_ms, timerCallback_t timerCallback) {
-    static uint8_t numTimers = 0;
+void registerTimer(timer_t* timerHandle, uint32_t period_ms, timerCallback_t timerCallback) {
     static bool firstTimerRegistered = false;
     static timer_t* prevTimerHandle;
 
@@ -42,7 +42,11 @@ uint8_t registerTimer(timer_t* timerHandle, uint32_t period_ms, timerCallback_t 
 
     prevTimerHandle = timerHandle;
     lastTimerHandle = timerHandle;
-    return ++numTimers;
+    numTimers++;
+}
+
+uint8_t getTimerCount () {
+    return numTimers;
 }
 
 void enableTimer (timer_t* timerHandle) {

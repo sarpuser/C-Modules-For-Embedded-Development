@@ -30,7 +30,9 @@ void timerOverflowInterrupt ();
 
 void defaultTimerCallback ();
 
-uint8_t registerTimer (timer_t* timerHandle, uint32_t period_ms, timerCallback_t timerCallback);
+void registerTimer (timer_t* timerHandle, uint32_t period_ms, timerCallback_t timerCallback);
+
+uint8_t getTimerCount ();
 
 void enableTimer (timer_t* timerHandle);
 
