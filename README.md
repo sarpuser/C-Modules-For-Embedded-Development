@@ -4,7 +4,14 @@ This library consists of useful C modules that can be used for embedded projects
 
 ## Table of Contents
 
+- [MPU6050 Motion Sensor](#MPU6050)
 - [Timers](#Timers)
+
+## MPU6050
+
+This module is a header file that contains the I2C address, register addresses and configurations, and some default values for the MPU6050 3 Axis Accelerometer and Gyroscope. <br>
+- (MPU6050 Datasheet)[https://invensense.tdk.com/wp-content/uploads/2015/02/MPU-6000-Datasheet1.pdf]
+- (MPU6050 Register Map)[https://invensense.tdk.com/wp-content/uploads/2015/02/MPU-6000-Register-Map1.pdf]
 
 ## Timers
 
