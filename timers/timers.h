@@ -7,7 +7,6 @@
 
 #ifndef TIMERS_H
 #define	TIMERS_H
-#endif	/* TIMERS_H */
 
 #include <stdint.h>
 #include <stdbool.h>
@@ -37,3 +36,5 @@ uint8_t getTimerCount ();
 void enableTimer (timer_t* timerHandle);
 
 void disableTimer (timer_t* timerHandle);
+
+#endif	/* TIMERS_H */

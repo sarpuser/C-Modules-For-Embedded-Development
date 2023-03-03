@@ -1,5 +1,5 @@
 /*
- * File:   MPU6050.h
+ * File:   mpu6050.h
  * Author: Sarp User
  *
  * Created on December 2, 2022, 3:57 PM
@@ -7,7 +7,6 @@
 
 #ifndef MPU6050_H
 #define	MPU6050_H
-#endif	/* MPU6050_H */
 
 // Default Values
 #define ACCEL_LSB_PER_G 16384
@@ -26,3 +25,5 @@
 #define PWR_MGMT_1_RESET_ENABLE_bm 0x80
 #define PWR_MGMT_1_SLEEP_ENABLE_bm 0x40
 #define PWR_MGMT_1_CYCLE_ENABLE_bm 0x20
+
+#endif /* MPU6050_H */
