@@ -25,7 +25,7 @@ struct timers_s {
     volatile bool triggered;
 };
 
-void timerOverflowInterrupt ();
+void timerOverflowInterruptCallback ();
 
 void defaultTimerCallback ();
 

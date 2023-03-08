@@ -4,7 +4,7 @@ static timer_t* lastTimerHandle = NULL;
 static uint8_t numTimers = 0;
 
 
-void timerOverflowInterrupt () {
+void timerOverflowInterruptCallback () {
     timer_t* currentTimerHandle = lastTimerHandle;
     while (currentTimerHandle != NULL) {
         if (currentTimerHandle->enabled && --(currentTimerHandle->count) == 0) {
