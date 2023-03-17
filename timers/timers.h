@@ -25,16 +25,14 @@ struct timers_s {
     volatile bool triggered;
 };
 
-void timerOverflowInterruptCallback ();
+void TIMERS_TimerOverflowInterruptCallback ();
 
-void defaultTimerCallback ();
+void TIMERS_RegisterTimer (timer_t* timerHandle, uint32_t period_ms, timerCallback_t timerCallback);
 
-void registerTimer (timer_t* timerHandle, uint32_t period_ms, timerCallback_t timerCallback);
+uint8_t TIMERS_GetTimerCount ();
 
-uint8_t getTimerCount ();
+void TIMERS_EnableTimer (timer_t* timerHandle);
 
-void enableTimer (timer_t* timerHandle);
-
-void disableTimer (timer_t* timerHandle);
+void TIMERS_DisableTimer (timer_t* timerHandle);
 
 #endif	/* TIMERS_H */

@@ -4,7 +4,7 @@ static timer_t* lastTimerHandle = NULL;
 static uint8_t numTimers = 0;
 
 
-void timerOverflowInterruptCallback () {
+void TIMERS_TimerOverflowInterruptCallback () {
     timer_t* currentTimerHandle = lastTimerHandle;
     while (currentTimerHandle != NULL) {
         if (currentTimerHandle->enabled && --(currentTimerHandle->count) == 0) {
@@ -16,21 +16,13 @@ void timerOverflowInterruptCallback () {
     }
 }
 
-void defaultTimerCallback () {
-    // Put Default Timer Callback code here
-}
-
-void registerTimer(timer_t* timerHandle, uint32_t period_ms, timerCallback_t timerCallback) {
+void TIMERS_RegisterTimer(timer_t* timerHandle, uint32_t period_ms, timerCallback_t timerCallback) {
     static bool firstTimerRegistered = false;
     static timer_t* prevTimerHandle;
 
     if (!firstTimerRegistered) {
         firstTimerRegistered = true;
         prevTimerHandle = NULL;
-    }
-
-    if (timerCallback == NULL) {
-        timerCallback = defaultTimerCallback;
     }
 
     timerHandle->prevTimerHandle = prevTimerHandle;
@@ -45,14 +37,14 @@ void registerTimer(timer_t* timerHandle, uint32_t period_ms, timerCallback_t tim
     numTimers++;
 }
 
-uint8_t getTimerCount () {
+uint8_t TIMERS_GetTimerCount () {
     return numTimers;
 }
 
-void enableTimer (timer_t* timerHandle) {
+void TIMERS_EnableTimer (timer_t* timerHandle) {
     timerHandle->enabled = true;
 }
 
-void disableTimer (timer_t* timerHandle) {
+void TIMERS_DisableTimer (timer_t* timerHandle) {
     timerHandle->enabled = false;
 }
